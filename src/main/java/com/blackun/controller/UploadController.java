@@ -192,6 +192,25 @@ public class UploadController {
 
 		return new ResponseEntity<>("delete", HttpStatus.OK);
 	}
+
+	@GetMapping(value="/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+	@ResponseBody
+	public ResponseEntity<Resource> downloadFile(String fileName){
+		log.info("download file: " + fileName);
+		Resource resource = new FileSystemResource(UPLOAD_PATH + fileName);
+
+		log.info("resource: "+resource);
+
+		String resourceName = resource.getFilename();
+
+		HttpHeaders headers = new HttpHeaders();
+		try{
+			headers.add("Content-Disposition", "attachment; filename="+new String(resourceName.getBytes("UTF-8"), "ISO-8859-1"));
+		} catch(UnsupportedEncodingException e){
+			e.printStackTrace();
+		}
+		return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
+	}
 }
 
 

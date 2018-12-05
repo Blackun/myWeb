@@ -1,8 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@include file="../includes/header.jsp"%>
+<link href="/static/css/uploadAjax.css" rel="stylesheet">
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Forms</h1>
+        <h1 class="page-header">게시판 글쓰기</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -11,187 +12,22 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Basic Form Elements
+                게시판 글쓰기
             </div>
             <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <form role="form">
-                            <div class="form-group">
-                                <label>Text Input</label>
-                                <input class="form-control">
-                                <p class="help-block">Example block-level help text here.</p>
-                            </div>
-                            <div class="form-group">
-                                <label>Text Input with Placeholder</label>
-                                <input class="form-control" placeholder="Enter text">
-                            </div>
-                            <div class="form-group">
-                                <label>Static Control</label>
-                                <p class="form-control-static">email@example.com</p>
-                            </div>
-                            <div class="form-group">
-                                <label>File input</label>
-                                <input type="file">
-                            </div>
-                            <div class="form-group">
-                                <label>Text area</label>
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Checkboxes</label>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">Checkbox 1
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">Checkbox 2
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">Checkbox 3
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Inline Checkboxes</label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox">1
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox">2
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox">3
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label>Radio Buttons</label>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Radio 1
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Radio 2
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Radio 3
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Inline Radio Buttons</label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>1
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">2
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3">3
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label>Selects</label>
-                                <select class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Multiple Selects</label>
-                                <select multiple class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-default">Submit Button</button>
-                            <button type="reset" class="btn btn-default">Reset Button</button>
-                        </form>
+                <form role="form" action="/board/register" method="post">
+                    <div class="form-group">
+                        <label>제목</label><input class="form-control" name="title" />
                     </div>
-                    <!-- /.col-lg-6 (nested) -->
-                    <div class="col-lg-6">
-                        <h1>Disabled Form States</h1>
-                        <form role="form">
-                            <fieldset disabled>
-                                <div class="form-group">
-                                    <label for="disabledSelect">Disabled input</label>
-                                    <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" disabled>
-                                </div>
-                                <div class="form-group">
-                                    <label for="disabledSelect">Disabled select menu</label>
-                                    <select id="disabledSelect" class="form-control">
-                                        <option>Disabled select</option>
-                                    </select>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">Disabled Checkbox
-                                    </label>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Disabled Button</button>
-                            </fieldset>
-                        </form>
-                        <h1>Form Validation States</h1>
-                        <form role="form">
-                            <div class="form-group has-success">
-                                <label class="control-label" for="inputSuccess">Input with success</label>
-                                <input type="text" class="form-control" id="inputSuccess">
-                            </div>
-                            <div class="form-group has-warning">
-                                <label class="control-label" for="inputWarning">Input with warning</label>
-                                <input type="text" class="form-control" id="inputWarning">
-                            </div>
-                            <div class="form-group has-error">
-                                <label class="control-label" for="inputError">Input with error</label>
-                                <input type="text" class="form-control" id="inputError">
-                            </div>
-                        </form>
-                        <h1>Input Groups</h1>
-                        <form role="form">
-                            <div class="form-group input-group">
-                                <span class="input-group-addon">@</span>
-                                <input type="text" class="form-control" placeholder="Username">
-                            </div>
-                            <div class="form-group input-group">
-                                <input type="text" class="form-control">
-                                <span class="input-group-addon">.00</span>
-                            </div>
-                            <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="fa fa-eur"></i>
-                                    </span>
-                                <input type="text" class="form-control" placeholder="Font Awesome Icon">
-                            </div>
-                            <div class="form-group input-group">
-                                <span class="input-group-addon">$</span>
-                                <input type="text" class="form-control">
-                                <span class="input-group-addon">.00</span>
-                            </div>
-                            <div class="form-group input-group">
-                                <input type="text" class="form-control">
-                                <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                            </div>
-                        </form>
+                    <div class="form-group">
+                        <label>내용</label><textarea class="form-control" row="3" name="content"></textarea>
                     </div>
-                    <!-- /.col-lg-6 (nested) -->
-                </div>
-                <!-- /.row (nested) -->
+                    <div class="form-group">
+                        <label>작성자</label><input class="form-control" name="writer">
+                    </div>
+                    <button type="submit" class="btn btn-default">등록</button>
+                    <button type="rest" class="btn btn-default">취소</button>
+                </form>
             </div>
             <!-- /.panel-body -->
         </div>
@@ -200,4 +36,161 @@
     <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
+
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                파일 첨부
+            </div>
+            <div class="panel-body">
+                    <div class="form-group uploadDiv">
+                        <input type="file" name="uploadFile" multiple />
+                    </div>
+                    <div class="form-group uploadResult">
+                        <ul>
+
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="bigPictureWrapper">
+    <div class="bigPicture">
+
+    </div>
+</div>
+
+<script>
+    var regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
+    var maxSize = 5242880; // 5MB
+
+    function checkExtension(fileName, fileSize){
+        if(fileSize >= maxSize){
+            alert("파일 사이즈 초과");
+            return false;
+        }
+
+        if(regex.test(fileName)){
+            alert("해당 종류의 파일은 업로드할 수 없습니다.");
+            return false;
+        }
+
+        return true;
+    }
+
+    function showImage(fileCallPath){
+        $(".bigPictureWrapper").css("display", "flex").show();
+        $(".bigPicture")
+            .html("<img src='/display?fileName="+encodeURIComponent(fileCallPath)+"'>")
+            .animate({width:'100%', height:'100%'}, 1000);
+    }
+
+    function showUploadedFile(uploadResultArr){
+        if(!uploadResultArr || uploadResultArr.length == 0) { return;}
+
+        var uploadUL = $(".uploadResult ul");
+
+        var str="";
+
+        $(uploadResultArr).each(function(i, obj){
+            if(obj.image) {
+                var fileCallPath = encodeURIComponent(obj.uploadPath + "/s_"+obj.uuid+"_"+obj.fileName);
+                var originPath = obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName;
+                originPath = originPath.replace(new RegExp(/\\/g), "/");
+
+                console.log(fileCallPath);
+                str += "<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"' data-type='"+obj.image+"'><div>" +
+                    "<span>"+obj.fileName+"</span>" +
+                    "<button type='button' data-file=\'"+fileCallPath +"\' data-type='image' class='btn btn-warning btn-circle'><i class='fa fa-times'></i></button><br/>" +
+                    "<a href=\"javascript:showImage(\'"+originPath+"\')\">" +
+                    "<img src='/display?fileName="+fileCallPath+"'></a>" +
+                "</div></li>";
+            } else {
+                var fileCallPath = encodeURIComponent(obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName);
+                var fileLink = fileCallPath.replace(new RegExp(/\\/g), "/");
+                str += "<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"' data-type='"+obj.image+"'><div>" +
+                    "<span>"+obj.fileName+"</span>" +
+                    "<button type='button' data-file=\'"+fileCallPath +"\' data-type='file' class='btn btn-warning btn-circle'><i class='fa fa-times'></i></button><br/>" +
+                    "<a href='/download?fileName="+fileCallPath+"'>" +
+                    "<img src='/static/img/attach.png'></a>" +
+                    "</div></li>";
+            }
+        });
+        uploadUL.append(str);
+    }
+
+    $(document).ready(function(e){
+       var formObj = $("form[role='form']");
+       var cloneObj = $(".uploadDiv").clone();
+
+       $("button[type='submit']").on('click', function(e){
+           e.preventDefault();
+           console.log("submit clicked");
+       });
+
+       $("input[type='file']").change(function(e){
+           var formData = new FormData();
+           var inputFile = $("input[name='uploadFile']");
+           var files = inputFile[0].files;
+
+           for(var i=0; i<files.length; i++){
+               if(!checkExtension(files[i].name, files[i].size)){
+                   return false;
+               }
+               formData.append("uploadFile", files[i]);
+           }
+
+           $.ajax({
+               url : '/uploadAjaxAction',
+               processData : false,
+               contentType : false,
+               data : formData,
+               type : 'POST',
+               dataType:'json',
+               success : function(result){
+                   console.log(result);
+                   showUploadedFile(result);
+                   $(".uploadDiv").html(cloneObj.html());
+               }
+           });
+       });
+
+        $(".bigPictureWrapper").on('click', function(e){
+            $(".bigPicture").animate({width:'0%', height:'0%'}, 1000);
+            setTimeout(() => {
+                    $(this).hide();
+            }, 1000);
+        });
+
+        $(".uploadResult").on("click", "button", function(e){
+           console.log("delete file");
+
+            var targetFile = $(this).data("file");
+            var type = $(this).data("type");
+            var targetLi = $(this).closest("li");
+            console.log(targetFile);
+
+            $.ajax({
+                url:'/deleteFile',
+                data:{fileName: targetFile, type:type},
+                dataType:'text',
+                type:'POST',
+                success:function(result){
+                    alert(result);
+                    targetLi.remove();
+                }
+            });
+        });
+
+    });
+</script>
 <%@include file="../includes/footer.jsp"%>
