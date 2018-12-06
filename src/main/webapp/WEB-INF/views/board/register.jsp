@@ -135,6 +135,18 @@
        $("button[type='submit']").on('click', function(e){
            e.preventDefault();
            console.log("submit clicked");
+
+           var str = "";
+           $(".uploadResult ul li").each(function(i, obj){
+              var jobj = $(obj);
+              console.dir(jobj);
+
+              str += "<input type='hidden' name='attachList["+i+"].fileName' value='"+jobj.data("filename")+"'>" +
+                  "<input type='hidden' name='attachList["+i+"].uuid' value='"+jobj.data("uuid")+"'>" +
+                  "<input type='hidden' name='attachList["+i+"].uploadPath' value='"+jobj.data("path")+"'>" +
+                  "<input type='hidden' name='attachList["+i+"].fileType' value='"+jobj.data("type")+"'>";
+           });
+           formObj.append(str).submit();
        });
 
        $("input[type='file']").change(function(e){

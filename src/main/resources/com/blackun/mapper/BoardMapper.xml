@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD MAPPER 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.blackun.mapper.BoardMapper">
+    <select id="getList" resultType="com.blackun.domain.BoardVO">
+        <![CDATA[
+          select * from tbl_board where bno > 0
+        ]]>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="bno">
+        insert into tbl_board(title, content, writer, regDate)
+        values(#{title}, #{content}, #{writer}, now())
+    </insert>
+</mapper>

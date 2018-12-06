@@ -15,5 +15,5 @@ public class BoardVO {
 
 	private int replyCnt;
 
-	private List<AttachFileDTO.BoardAttachVO> attachList;
+	private List<BoardAttachVO> attachList;
 }

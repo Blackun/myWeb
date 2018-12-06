@@ -1,10 +1,10 @@
 package com.blackun.mapper;
 
-import com.blackun.domain.AttachFileDTO;
+import com.blackun.domain.BoardAttachVO;
 import java.util.List;
 
 public interface BoardAttachMapper {
-	public void insert(AttachFileDTO.BoardAttachVO vo);
+	public void insert(BoardAttachVO vo);
 	public void delete(String uuid);
-	public List<AttachFileDTO.BoardAttachVO> findByBno(Long bno);
+	public List<BoardAttachVO> findByBno(Long bno);
 }
