@@ -195,17 +195,36 @@ public class UploadController {
 
 	@GetMapping(value="/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	@ResponseBody
-	public ResponseEntity<Resource> downloadFile(String fileName){
-		log.info("download file: " + fileName);
+	public ResponseEntity<Resource> downloadFile(@RequestHeader("User-Agent")String userAgent, String fileName){
 		Resource resource = new FileSystemResource(UPLOAD_PATH + fileName);
 
-		log.info("resource: "+resource);
+		if(resource.exists() == false){
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 
 		String resourceName = resource.getFilename();
 
+		// remove UUID
+		String resourcOriginalName = resourceName.substring(resourceName.indexOf("_")+1);
+
 		HttpHeaders headers = new HttpHeaders();
 		try{
-			headers.add("Content-Disposition", "attachment; filename="+new String(resourceName.getBytes("UTF-8"), "ISO-8859-1"));
+			String downloadName = null;
+
+			if(userAgent.contains("Trident")){
+				log.info("IE browser");
+				downloadName = URLEncoder.encode(resourcOriginalName, "UTF-8").replaceAll("\\+", " ");
+			} else if(userAgent.contains("Edge")){
+				log.info("Edge browser");
+				downloadName = URLEncoder.encode(resourcOriginalName, "UTF-8");
+			} else {
+				log.info("Chrome browser");
+				downloadName = new String(resourcOriginalName.getBytes("UTF-8"), "ISO-8859-1");
+			}
+
+			log.info("downloadName: "+downloadName);
+
+			headers.add("Content-Disposition", "attachment; filename="+downloadName);
 		} catch(UnsupportedEncodingException e){
 			e.printStackTrace();
 		}

@@ -12,4 +12,8 @@
         insert into tbl_board(title, content, writer, regDate)
         values(#{title}, #{content}, #{writer}, now())
     </insert>
+
+    <select id="read" resultType="com.blackun.domain.BoardVO">
+		select * from tbl_board where bno =	#{bno}
+	</select>
 </mapper>

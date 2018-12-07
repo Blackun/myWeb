@@ -1,8 +1,10 @@
 package com.blackun.service;
 
+import com.blackun.domain.BoardAttachVO;
 import com.blackun.domain.BoardVO;
 import com.blackun.mapper.BoardAttachMapper;
 import com.blackun.mapper.BoardMapper;
+import java.util.List;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +37,17 @@ public class BoardServiceImpl implements BoardService {
 			attachMapper.insert(attach);
 		});
 
+	}
+
+	@Override
+	public List<BoardAttachVO> getAttachList(Long bno) {
+		log.info("get Attach list by bno "+ bno);
+		return attachMapper.findByBno(bno);
+	}
+
+	@Override
+	public BoardVO get(Long bno) {
+		log.info("get......" + bno);
+		return mapper.read(bno);
 	}
 }
