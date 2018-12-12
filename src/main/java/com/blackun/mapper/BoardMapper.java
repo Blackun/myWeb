@@ -5,7 +5,10 @@ import java.util.List;
 
 
 public interface BoardMapper {
-	public List<BoardVO> getList();
-	public int insert(BoardVO board);
-	public BoardVO read(Long bno);
+	List<BoardVO> getList();
+	int insert(BoardVO board);
+	BoardVO read(Long bno);
+	int delete(Long bno);
+	int update(BoardVO board);
+
 }

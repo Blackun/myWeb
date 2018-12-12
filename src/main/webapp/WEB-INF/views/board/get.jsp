@@ -4,7 +4,7 @@
 <link href="/static/css/board.css" rel="stylesheet">
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Board Read</h1>
+        <h1 class="page-header">게시물 보기</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
