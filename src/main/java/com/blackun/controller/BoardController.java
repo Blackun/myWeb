@@ -8,20 +8,15 @@ import com.blackun.util.MyFiles;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,19 +28,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Log4j
 @RequestMapping("/board/*")
 @AllArgsConstructor
-public class BoardController {
-	private final String UPLOAD_PATH = "/Users/jgbae/IdeaProjects/myWeb/src/main/webapp/upload/";
+public class BoardController extends MywebController{
 
 	private BoardService service;
-
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		dateFormat.setLenient(false);
-
-		// true passed to CustomDateEditor constructor means convert empty String to null
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
-	}
 
 	@GetMapping("/list")
 	public void list(){

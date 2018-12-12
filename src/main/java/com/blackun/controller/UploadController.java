@@ -34,9 +34,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @Log4j
-public class UploadController {
-
-	private final String UPLOAD_PATH = "/Users/jgbae/IdeaProjects/myWeb/src/main/webapp/upload/";
+public class UploadController extends MywebController{
 
 	@GetMapping("/uploadForm")
 	public void uploadForm() {
