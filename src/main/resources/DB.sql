@@ -1,3 +1,10 @@
+-- transaction 테스트 테이블
+CREATE TABLE `myweb`.`tbl_sample1` (
+  `col1` VARCHAR(500) NULL);
+
+CREATE TABLE `myweb`.`tbl_sample2` (
+  `col2` VARCHAR(50) NULL);
+
 
 -- 게시물 저장
 CREATE TABLE `tbl_board` (
