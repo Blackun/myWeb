@@ -8,6 +8,15 @@
         ]]>
     </select>
 
+    <select id="getListWithPaging" resultType="com.blackun.domain.BoardVO">
+        <![CDATA[
+          select bno, title, content, writer, regDate, updateDate, replyCnt
+          from tbl_board
+          where bno > 0
+          limit (#{pageNum}-1)* #{amount}, #{amount}
+        ]]>
+    </select>
+
     <insert id="insert" useGeneratedKeys="true" keyProperty="bno">
         insert into tbl_board(title, content, writer, regDate)
         values(#{title}, #{content}, #{writer}, now())
@@ -30,4 +39,8 @@
 		  updateDate = now()
 		where bno = #{bno}
 	</update>
+
+    <update id="updateReplyCnt">
+        update tbl_board set replyCnt = replyCnt + #{amount} where bno = #{bno}
+    </update>
 </mapper>
