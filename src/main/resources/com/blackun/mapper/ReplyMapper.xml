@@ -6,4 +6,20 @@
 		insert into tbl_reply (bno, reply, replyer)
 		values (#{bno}, #{reply}, #{replyer})
 	</insert>
+
+	<select id="read" resultType="com.blackun.domain.ReplyVO">
+		select * from tbl_reply where rno = #{rno}
+	</select>
+
+	<delete id="delete">
+		delete from tbl_reply where rno=#{rno}
+	</delete>
+
+	<update id="update">
+		update tbl_reply
+		set
+			reply = #{reply},
+			updateDate = now()
+		where rno = #{rno}
+	</update>
 </mapper>

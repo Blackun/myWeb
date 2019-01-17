@@ -12,6 +12,7 @@
             <param-value>
                 classpath:spring/applicationContext-bean.xml
                 classpath:spring/applicationContext-database.xml
+                classpath:spring/webApplicationContext-bean.xml
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>

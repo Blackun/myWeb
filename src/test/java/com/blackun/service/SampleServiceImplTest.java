@@ -7,12 +7,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @Log4j
 @ContextConfiguration({"classpath:/spring/application*"})
-@WebAppConfiguration
 public class SampleServiceImplTest {
 
 	@Setter(onMethod_ = @Autowired)
