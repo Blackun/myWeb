@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -100,7 +99,7 @@ public class UploadController extends MywebController{
 		// make yyyy/MM/dd folder
 
 		for (MultipartFile multipartFile : uploadFile) {
-			AttachFileDTO attachDTO = new AttachFileDTO();
+			AttachFileDTO attachDTO = new AttachFileDTOBuilder().createAttachFileDTO();
 
 			String uploadFileName = multipartFile.getOriginalFilename();
 

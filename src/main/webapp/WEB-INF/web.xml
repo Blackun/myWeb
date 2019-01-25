@@ -15,8 +15,11 @@
                 classpath:spring/webApplicationContext-bean.xml
             </param-value>
         </init-param>
+        <init-param>
+            <param-name>throwExceptionIfNoHandlerFound</param-name>
+            <param-value>true</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
-
         <multipart-config>
             <location>/Users/jgbae/IdeaProjects/myWeb/src/main/webapp/upload/temp</location>
             <max-file-size>20971520</max-file-size> <!--1MB * 20 -->
